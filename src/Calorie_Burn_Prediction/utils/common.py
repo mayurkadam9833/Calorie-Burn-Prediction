@@ -12,7 +12,7 @@ from src.Calorie_Burn_Prediction.logging import logger
 def read_yaml(path_to_yaml:Path)-> ConfigBox: 
     try: 
         with open(path_to_yaml,"r")as yaml_file: 
-            content=yaml.load(yaml_file)
+            content=yaml.safe_load(yaml_file)
             logger.info(f"yaml file loaded sucessfully from path: {path_to_yaml}")
 
     # Raised when YAML file is empty
