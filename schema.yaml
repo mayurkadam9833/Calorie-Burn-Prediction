@@ -1,0 +1,11 @@
+COLUMNS: 
+ User_ID    :  int64  
+ Gender     :  object 
+ Age        :  int64  
+ Height     :  float64
+ Weight     :  float64
+ Duration   :  float64
+ Heart_Rate :  float64
+ Body_Temp  :  float64
+TARGET_COLUMN:
+ Calories   :  float64
