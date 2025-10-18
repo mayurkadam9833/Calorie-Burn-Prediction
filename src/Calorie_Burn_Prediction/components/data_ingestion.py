@@ -29,7 +29,7 @@ class DataIngestion:
             else: 
                 logger.info(f"{self.config.local_data_file} is already exits of size:{get_size(self.config.local_data_file)}")
 
-         # Raise any exceptions encountered during download
+        # Raise any exceptions encountered during download
         except Exception as e: 
             raise e 
     
