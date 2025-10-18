@@ -1,5 +1,5 @@
 from src.Calorie_Burn_Prediction.utils.common import create_dir,read_yaml 
-from src.Calorie_Burn_Prediction.entity.config_entity import DataIngestionConfig 
+from src.Calorie_Burn_Prediction.entity.config_entity import DataIngestionConfig,DataValidationConfig
 from src.Calorie_Burn_Prediction.constants import *
 
 
@@ -40,4 +40,23 @@ class ConfigManager:
             unzip_dir=config.unzip_dir
         )
         return data_ingestion_config
+    
+    # method to get data validation config object
+    def get_data_validation_config(self)-> DataValidationConfig: 
+        # Access data validation-related configuration details 
+        config=self.config.data_validation 
+        schema=self.schema.COLUMNS 
+
+        # Create the data validation root directory
+        create_dir([config.root_dir])
+
+        # Create and return the DataValidationConfig dataclass instance
+        data_validation_config=DataValidationConfig(
+            root_dir=config.root_dir, 
+            unzip_data=config.unzip_data, 
+            status_file=config.status_file, 
+            all_schema=schema
+        )
+        return data_validation_config
+
 
